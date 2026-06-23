@@ -357,6 +357,52 @@
     .notes-area::placeholder { color: var(--muted); font-weight: 300; }
 
     /* ──────────────────────────────────────────
+       SHARE BUTTON
+    ────────────────────────────────────────── */
+    .share-btn {
+      display: block;
+      margin: 0 14px 12px;
+      width: calc(100% - 28px);
+      padding: 18px;
+      background: linear-gradient(135deg, var(--sea) 0%, var(--terra) 100%);
+      border: none;
+      border-radius: 14px;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26,107,138,0.35);
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .share-btn:active {
+      opacity: 0.85;
+      transform: scale(0.98);
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #1B5E20;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 99px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ──────────────────────────────────────────
        RESET BUTTON
     ────────────────────────────────────────── */
     .reset-btn {
@@ -647,7 +693,15 @@
 <!-- ══════════════════════════════════════════
      BOUTON RESET
 ══════════════════════════════════════════ -->
+<!-- Bouton partager -->
+<button class="share-btn" onclick="shareResume()">
+  📤 &nbsp;Envoyer le résumé &nbsp;/&nbsp; שלח סיכום
+</button>
+
 <button class="reset-btn" onclick="resetAll()">↺ &nbsp;Réinitialiser &nbsp;/&nbsp; לאפס את הצ'קליסט</button>
+
+<!-- Toast -->
+<div class="toast" id="toast">✅ Résumé copié !</div>
 
 <footer>Check-out Maison Eilat &nbsp;•&nbsp; שמירה אוטומטית פעילה 🔒</footer>
 
@@ -670,6 +724,82 @@
 
   function saveState(state) {
     localStorage.setItem(KEY_STATE, JSON.stringify(state));
+  }
+
+  // ── Formater le résumé de départ ─────────────
+  function formatResume() {
+    const nom   = document.getElementById('nomField').value   || '—';
+    const date  = document.getElementById('dateField').value  || '—';
+    const clefs = document.getElementById('clefsField').value || '—';
+    const notes = document.getElementById('notesField').value || '';
+    const stamp = localStorage.getItem(KEY_STAMP) || '—';
+    const checked = document.querySelectorAll('.item.checked').length;
+
+    // Icône par section pour le résumé
+    const sections = [
+      { label: 'Stocks / מלאי',             ids: ['pq','sopalin','eau','produits','gaz_stock'] },
+      { label: 'Chambres / חדרים',           ids: ['draps'] },
+      { label: 'Linge / כביסה',              ids: ['linge_dehors','linge_chaises'] },
+      { label: 'Cuisine / מטבח',             ids: ['frigo'] },
+      { label: 'Électricité / חשמל',         ids: ['clim','desert_cooler','lumieres','prises','piles'] },
+      { label: 'Eau & Gaz / מים וגז',        ids: ['eau_coup','gaz_coup','robinets'] },
+      { label: 'Sécurité / אבטחה',           ids: ['volets'] },
+      { label: 'Piscine / בריכה',            ids: ['piscine'] },
+    ];
+
+    const state = loadState();
+    let lines = [
+      '🏠 CHECK-OUT MAISON EILAT',
+      '──────────────────────',
+      `👤 ${nom}`,
+      `📅 ${date}`,
+      `🔑 Clefs / מפתחות : ${clefs}`,
+      `✅ ${checked} / ${TOTAL} tâches`,
+      `🕐 ${stamp}`,
+    ];
+
+    if (notes) lines.push(`📝 ${notes}`);
+
+    lines.push('\n── Détail ──');
+    sections.forEach(sec => {
+      const allDone = sec.ids.every(id => state[id]);
+      const some    = sec.ids.some(id => state[id]);
+      const icon = allDone ? '✅' : (some ? '⚠️' : '❌');
+      lines.push(`${icon} ${sec.label}`);
+    });
+
+    return lines.join('\n');
+  }
+
+  // ── Partager le résumé (Web Share API → Telegram, etc.) ──
+  async function shareResume() {
+    const text = formatResume();
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: '🏠 Check-out Maison Eilat',
+          text: text
+        });
+      } catch (e) {
+        // Annulé par l'utilisateur — silencieux
+      }
+    } else {
+      // Fallback bureau : copier dans le presse-papiers
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('✅ Résumé copié dans le presse-papiers !');
+      } catch {
+        prompt('Copie ce résumé :', text);
+      }
+    }
+  }
+
+  // ── Toast de confirmation ─────────────────────
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
   }
 
   // ── Mise à jour de la barre de progression ───
