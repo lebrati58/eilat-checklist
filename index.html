@@ -693,9 +693,11 @@
 <!-- ══════════════════════════════════════════
      BOUTON RESET
 ══════════════════════════════════════════ -->
-<!-- Bouton envoyer vers Google Sheets -->
-<button class="share-btn" id="sendBtn" onclick="sendToSheets()">
-  📤 &nbsp;Envoyer vers Google Sheets &nbsp;/&nbsp; שלח לגוגל שיטס
+<!-- Bouton WhatsApp -->
+<button class="share-btn" onclick="sendWhatsApp()">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+       style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
+  Envoyer sur WhatsApp &nbsp;/&nbsp; שלח בוואצאפ
 </button>
 
 <button class="reset-btn" onclick="resetAll()">↺ &nbsp;Réinitialiser &nbsp;/&nbsp; לאפס את הצ'קליסט</button>
@@ -772,49 +774,14 @@
   }
 
   // ── Partager le résumé (Web Share API → Telegram, etc.) ──
-  // ── URL du Google Apps Script (à remplir après déploiement) ──
-  const APPS_SCRIPT_URL = 'COLLER_URL_ICI';
+  // ── Numéro WhatsApp destinataire ────────────────────────
+  const WA_NUMBER = '972547361558';
 
-  // ── Envoyer les données vers Google Sheets ──────────────────
-  async function sendToSheets() {
-    if (APPS_SCRIPT_URL === 'COLLER_URL_ICI') {
-      showToast('⚠️ Google Sheets pas encore configuré');
-      return;
-    }
-
-    const state   = loadState();
-    const stamp   = localStorage.getItem(KEY_STAMP) || '';
-    const payload = {
-      nom:    document.getElementById('nomField').value   || '',
-      date:   document.getElementById('dateField').value  || '',
-      clefs:  document.getElementById('clefsField').value || '',
-      notes:  document.getElementById('notesField').value || '',
-      taches: document.querySelectorAll('.item.checked').length + ' / ' + TOTAL,
-      piscine: !!state['piscine'],
-      eau:     !!state['eau_coup'],
-      gaz:     !!state['gaz_coup'],
-      volets:  !!state['volets'],
-      stamp:   stamp
-    };
-
-    const btn = document.getElementById('sendBtn');
-    btn.textContent = '⏳ Envoi en cours…';
-    btn.disabled = true;
-
-    try {
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      showToast('✅ Envoyé dans Google Sheets !');
-    } catch (err) {
-      showToast('❌ Erreur d\'envoi — vérifie ta connexion');
-    } finally {
-      btn.textContent = '📤 Envoyer vers Google Sheets / שלח לגוגל שיטס';
-      btn.disabled = false;
-    }
+  // ── Envoyer le résumé sur WhatsApp ──────────────────────
+  function sendWhatsApp() {
+    const text = formatResume();
+    const url  = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
+    window.open(url, '_blank');
   }
 
   // ── Toast de confirmation ─────────────────────
