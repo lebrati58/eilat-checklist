@@ -6,11 +6,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Check-out Maison Eilat 🏠☀️ | יציאה מהבית אילת</title>
+  <title>Check-out Maison Eilat 🏠☀️</title>
   <style>
-    /* ──────────────────────────────────────────
-       IMPORTS & VARIABLES
-    ────────────────────────────────────────── */
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
 
     :root {
@@ -22,14 +19,10 @@
       --ink:        #2C1F0E;
       --muted:      #9A8672;
       --green:      #4CAF50;
-      --green-bg:   #E8F5E9;
       --white:      #FEFAF3;
       --shadow:     rgba(44,31,14,0.10);
     }
 
-    /* ──────────────────────────────────────────
-       RESET & BASE
-    ────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -40,12 +33,10 @@
       padding-bottom: 48px;
     }
 
-    /* ──────────────────────────────────────────
-       HEADER
-    ────────────────────────────────────────── */
+    /* ── HEADER ── */
     header {
       background: linear-gradient(135deg, var(--sea) 0%, var(--terra) 100%);
-      padding: 28px 20px 20px;
+      padding: 22px 20px 16px;
       text-align: center;
       position: sticky;
       top: 0;
@@ -54,24 +45,49 @@
     }
 
     header h1 {
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       font-weight: 800;
       color: white;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     header .subtitle {
       font-size: 0.82rem;
       color: rgba(255,255,255,0.72);
-      margin-top: 4px;
+      margin-top: 3px;
       font-weight: 300;
-      letter-spacing: 0.02em;
     }
 
-    /* ──────────────────────────────────────────
-       PROGRESS BAR
-    ────────────────────────────────────────── */
+    /* ── LANG TOGGLE ── */
+    .lang-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .lang-btn {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .lang-btn.active {
+      border-color: white;
+      color: white;
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ── PROGRESS BAR ── */
     .progress-wrap {
       background: var(--white);
       border-radius: 0 0 18px 18px;
@@ -88,7 +104,7 @@
       margin-bottom: 10px;
     }
 
-    .progress-label span { font-size: 0.82rem; color: var(--muted); font-weight: 400; }
+    .progress-label span { font-size: 0.82rem; color: var(--muted); }
     .progress-label strong { font-size: 1.05rem; color: var(--sea); font-weight: 700; }
 
     .progress-bar-bg {
@@ -106,9 +122,7 @@
       width: 0%;
     }
 
-    /* ──────────────────────────────────────────
-       SUCCESS BANNER
-    ────────────────────────────────────────── */
+    /* ── SUCCESS ── */
     .success-msg {
       display: none;
       background: linear-gradient(135deg, #1B5E20, #2E7D32);
@@ -117,9 +131,8 @@
       padding: 18px 20px;
       margin: 0 14px 20px;
       border-radius: 14px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
       box-shadow: 0 4px 12px rgba(27,94,32,0.3);
       animation: popIn 0.4s ease;
     }
@@ -129,9 +142,7 @@
       to   { transform: scale(1);    opacity: 1; }
     }
 
-    /* ──────────────────────────────────────────
-       SECTION BLOCKS
-    ────────────────────────────────────────── */
+    /* ── SECTION BLOCKS ── */
     .section-block {
       margin: 0 14px 20px;
       background: var(--white);
@@ -145,26 +156,23 @@
       align-items: center;
       gap: 8px;
       padding: 13px 18px;
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       border-bottom: 2px solid transparent;
     }
 
-    /* Section color variants */
-    .section-title.stocks    { color: #8B5E3C; background: rgba(196,98,45,0.07);  border-color: rgba(196,98,45,0.15); }
-    .section-title.chambres  { color: #5C4799; background: rgba(92,71,153,0.07); border-color: rgba(92,71,153,0.15); }
-    .section-title.linge     { color: #2E7D5E; background: rgba(46,125,94,0.07); border-color: rgba(46,125,94,0.15); }
-    .section-title.cuisine   { color: #C44D17; background: rgba(196,77,23,0.07); border-color: rgba(196,77,23,0.15); }
-    .section-title.elec      { color: #7B6300; background: rgba(255,193,7,0.10); border-color: rgba(255,193,7,0.20); }
-    .section-title.eau-gaz   { color: var(--sea); background: rgba(26,107,138,0.07); border-color: rgba(26,107,138,0.15); }
-    .section-title.securite  { color: #B71C1C; background: rgba(183,28,28,0.06); border-color: rgba(183,28,28,0.15); }
-    .section-title.piscine   { color: #006994; background: rgba(0,105,148,0.07); border-color: rgba(0,105,148,0.18); }
+    .section-title.stocks   { color: #8B5E3C; background: rgba(196,98,45,0.07);  border-color: rgba(196,98,45,0.15); }
+    .section-title.chambres { color: #5C4799; background: rgba(92,71,153,0.07);  border-color: rgba(92,71,153,0.15); }
+    .section-title.linge    { color: #2E7D5E; background: rgba(46,125,94,0.07);  border-color: rgba(46,125,94,0.15); }
+    .section-title.cuisine  { color: #C44D17; background: rgba(196,77,23,0.07);  border-color: rgba(196,77,23,0.15); }
+    .section-title.elec     { color: #7B6300; background: rgba(255,193,7,0.10);  border-color: rgba(255,193,7,0.20); }
+    .section-title.eau-gaz  { color: var(--sea); background: rgba(26,107,138,0.07); border-color: rgba(26,107,138,0.15); }
+    .section-title.securite { color: #B71C1C; background: rgba(183,28,28,0.06); border-color: rgba(183,28,28,0.15); }
+    .section-title.piscine  { color: #006994; background: rgba(0,105,148,0.07); border-color: rgba(0,105,148,0.18); }
 
-    /* ──────────────────────────────────────────
-       ITEMS (checklist rows)
-    ────────────────────────────────────────── */
+    /* ── ITEMS ── */
     .item {
       display: flex;
       align-items: center;
@@ -178,18 +186,10 @@
     }
 
     .item:last-child { border-bottom: none; }
-    .item:active     { background: rgba(0,0,0,0.04); }
+    .item:active { background: rgba(0,0,0,0.04); }
+    .item.checked { background: rgba(76,175,80,0.05); }
+    .item.checked .item-label { text-decoration: line-through; color: var(--muted); }
 
-    .item.checked {
-      background: rgba(76,175,80,0.05);
-    }
-
-    .item.checked .item-label {
-      text-decoration: line-through;
-      color: var(--muted);
-    }
-
-    /* Checkbox pill */
     .checkbox {
       width: 28px;
       height: 28px;
@@ -203,47 +203,32 @@
       background: white;
     }
 
-    .item.checked .checkbox {
-      background: var(--green);
-      border-color: var(--green);
-    }
-
+    .item.checked .checkbox { background: var(--green); border-color: var(--green); }
     .checkbox svg { opacity: 0; transition: opacity 0.2s; }
     .item.checked .checkbox svg { opacity: 1; }
 
-    /* Label */
     .item-label {
       font-size: 0.97rem;
       font-weight: 400;
       line-height: 1.35;
       flex: 1;
       transition: all 0.2s;
+      direction: auto;
     }
 
-    /* Small note inside an item */
     .item-note {
-      font-size: 0.74rem;
+      font-size: 0.75rem;
       color: var(--muted);
       display: block;
       margin-top: 3px;
       font-weight: 300;
     }
 
-    /* Icon */
-    .item-icon {
-      font-size: 1.1rem;
-      width: 24px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    /* Highlight row (piscine) */
+    .item-icon { font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0; }
     .item.highlight:not(.checked) { background: rgba(0,105,148,0.05); }
-    .item.highlight .item-label   { font-weight: 600; }
+    .item.highlight .item-label { font-weight: 600; }
 
-    /* ──────────────────────────────────────────
-       LAST CHECK + NOTES + META FIELDS
-    ────────────────────────────────────────── */
+    /* ── META BLOCK ── */
     .meta-block {
       margin: 0 14px 20px;
       background: var(--white);
@@ -259,12 +244,10 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 16px;
+      direction: auto;
     }
 
-    /* Champs nom / date / clefs */
-    .meta-field {
-      margin-bottom: 14px;
-    }
+    .meta-field { margin-bottom: 14px; }
 
     .meta-label {
       display: block;
@@ -272,13 +255,7 @@
       font-weight: 600;
       color: var(--ink);
       margin-bottom: 6px;
-    }
-
-    .meta-label-he {
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--muted);
-      direction: rtl;
+      direction: auto;
     }
 
     .meta-input {
@@ -291,16 +268,12 @@
       color: var(--ink);
       background: var(--white);
       transition: border-color 0.2s;
+      direction: auto;
     }
 
-    .meta-input:focus {
-      outline: none;
-      border-color: var(--sea);
-    }
-
+    .meta-input:focus { outline: none; border-color: var(--sea); }
     .meta-input::placeholder { color: var(--muted); font-weight: 300; }
 
-    /* Last check row */
     .last-check {
       display: flex;
       align-items: center;
@@ -310,7 +283,7 @@
       margin-bottom: 4px;
     }
 
-    .last-check-label { font-size: 0.88rem; color: var(--ink); font-weight: 400; }
+    .last-check-label { font-size: 0.88rem; color: var(--ink); font-weight: 400; direction: auto; }
 
     .last-check-value {
       font-size: 0.82rem;
@@ -329,13 +302,9 @@
       font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s;
       white-space: nowrap;
     }
 
-    .stamp-btn:active { background: var(--sea-light); }
-
-    /* Notes textarea */
     .notes-area {
       width: 100%;
       min-height: 90px;
@@ -350,42 +319,58 @@
       transition: border-color 0.2s;
       margin-top: 14px;
       line-height: 1.5;
+      direction: auto;
     }
 
-    .notes-area:focus {
-      outline: none;
-      border-color: var(--sea);
-    }
-
+    .notes-area:focus { outline: none; border-color: var(--sea); }
     .notes-area::placeholder { color: var(--muted); font-weight: 300; }
 
-    /* ──────────────────────────────────────────
-       SHARE BUTTON
-    ────────────────────────────────────────── */
+    /* ── WHATSAPP BUTTON ── */
     .share-btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       margin: 0 14px 12px;
       width: calc(100% - 28px);
       padding: 18px;
-      background: linear-gradient(135deg, var(--sea) 0%, var(--terra) 100%);
+      background: #25D366;
       border: none;
       border-radius: 14px;
       color: white;
       font-family: 'Outfit', sans-serif;
       font-size: 1rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(26,107,138,0.35);
+      box-shadow: 0 4px 14px rgba(37,211,102,0.35);
       transition: opacity 0.2s, transform 0.1s;
     }
 
-    .share-btn:active {
-      opacity: 0.85;
-      transform: scale(0.98);
+    .share-btn:active { opacity: 0.85; transform: scale(0.98); }
+
+    /* ── RESET BUTTON ── */
+    .reset-btn {
+      display: block;
+      margin: 6px 14px 0;
+      width: calc(100% - 28px);
+      padding: 17px;
+      background: transparent;
+      border: 2px solid var(--muted);
+      border-radius: 14px;
+      color: var(--muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      direction: auto;
     }
 
-    /* Toast notification */
+    .reset-btn:active { background: var(--sand-dark); color: var(--ink); border-color: var(--ink); }
+
+    /* ── TOAST ── */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -405,62 +390,31 @@
 
     .toast.show { transform: translateX(-50%) translateY(0); }
 
-    /* ──────────────────────────────────────────
-       RESET BUTTON
-    ────────────────────────────────────────── */
-    .reset-btn {
-      display: block;
-      margin: 6px 14px 0;
-      width: calc(100% - 28px);
-      padding: 17px;
-      background: transparent;
-      border: 2px solid var(--muted);
-      border-radius: 14px;
-      color: var(--muted);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .reset-btn:active {
-      background: var(--sand-dark);
-      color: var(--ink);
-      border-color: var(--ink);
-    }
-
-    /* ──────────────────────────────────────────
-       FOOTER
-    ────────────────────────────────────────── */
     footer {
       text-align: center;
       margin-top: 28px;
       font-size: 0.72rem;
       color: var(--muted);
       font-weight: 300;
-      letter-spacing: 0.04em;
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     HEADER
-══════════════════════════════════════════ -->
+<!-- HEADER -->
 <header>
-  <h1>🏠 Check-out Maison Eilat</h1>
-  <div class="subtitle">Checklist avant de fermer la maison &nbsp;•&nbsp; צ'קליסט לפני סגירת הבית ☀️</div>
+  <h1 data-i18n="title">🏠 Check-out Maison Eilat</h1>
+  <div class="subtitle" data-i18n="subtitle">Checklist avant de fermer la maison ☀️</div>
+  <div class="lang-bar">
+    <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">🇫🇷 Français</button>
+    <button class="lang-btn" data-lang="he" onclick="setLang('he')">🇮🇱 עברית</button>
+  </div>
 </header>
 
-<!-- ══════════════════════════════════════════
-     BARRE DE PROGRESSION
-══════════════════════════════════════════ -->
+<!-- PROGRESS -->
 <div class="progress-wrap">
   <div class="progress-label">
-    <span>Tâches complétées &nbsp;/&nbsp; משימות שהושלמו</span>
+    <span data-i18n="progress_label">Tâches complétées</span>
     <strong id="counter">0 / 19</strong>
   </div>
   <div class="progress-bar-bg">
@@ -468,260 +422,382 @@
   </div>
 </div>
 
-<!-- Message de succès global -->
-<div class="success-msg" id="successMsg">
-  ✅ Maison prête — tu peux partir tranquille ! 🚗☀️<br><span style="font-size:0.9rem;font-weight:400;opacity:0.9">הבית מוכן — אפשר לצאת בשקט! נסיעה טובה!</span>
+<div class="success-msg" id="successMsg" data-i18n="success">
+  ✅ Maison prête — tu peux partir tranquille ! 🚗☀️
 </div>
 
-<!-- ══════════════════════════════════════════
-     1. STOCKS
-══════════════════════════════════════════ -->
+<!-- 1. STOCKS -->
 <div class="section-block">
-  <div class="section-title stocks">📦 Stocks à vérifier &nbsp;/&nbsp; בדיקת מלאי</div>
+  <div class="section-title stocks" data-i18n="sec_stocks">📦 Stocks à vérifier</div>
 
   <div class="item" data-id="pq" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧻</span>
-    <span class="item-label">Papier toilette (PQ)<span class="item-note">נייר טואלט</span></span>
+    <span class="item-label" data-i18n="pq">Papier toilette (PQ)</span>
   </div>
 
   <div class="item" data-id="sopalin" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧴</span>
-    <span class="item-label">Sopalin<span class="item-note">נייר מטבח</span></span>
+    <span class="item-label" data-i18n="sopalin">Sopalin</span>
   </div>
 
   <div class="item" data-id="eau" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">💧</span>
-    <span class="item-label">Bouteilles d'eau<span class="item-note">בקבוקי מים — לבדוק המלאי</span></span>
+    <span class="item-label" data-i18n="eau">Bouteilles d'eau</span>
   </div>
 
   <div class="item" data-id="produits" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧹</span>
-    <span class="item-label">Produits d'entretien<span class="item-note">חומרי ניקוי</span></span>
+    <span class="item-label" data-i18n="produits">Produits d'entretien</span>
   </div>
 
   <div class="item" data-id="gaz_stock" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔥</span>
-    <span class="item-label">Gaz<span class="item-note">גז</span></span>
+    <span class="item-label" data-i18n="gaz_stock">Gaz</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     2. CHAMBRES
-══════════════════════════════════════════ -->
+<!-- 2. CHAMBRES -->
 <div class="section-block">
-  <div class="section-title chambres">🛏 Chambres &nbsp;/&nbsp; חדרים</div>
+  <div class="section-title chambres" data-i18n="sec_chambres">🛏 Chambres</div>
 
   <div class="item" data-id="draps" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🛏</span>
-    <span class="item-label">Mettre les draps et couvertures sur les lits<span class="item-note">לשים סדינים ושמיכות על המיטות</span></span>
+    <span class="item-label" data-i18n="draps">Mettre les draps et couvertures sur les lits</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     3. LINGE
-══════════════════════════════════════════ -->
+<!-- 3. LINGE -->
 <div class="section-block">
-  <div class="section-title linge">👕 Linge &nbsp;/&nbsp; כביסה</div>
+  <div class="section-title linge" data-i18n="sec_linge">👕 Linge</div>
 
   <div class="item" data-id="linge_dehors" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🚫</span>
-    <span class="item-label">Pas de linge laissé dehors<span class="item-note">אין כביסה בחוץ — לבדוק מייבש / מרפסת</span></span>
+    <span class="item-label" data-i18n="linge_dehors">Pas de linge laissé dehors
+      <span class="item-note" data-i18n="linge_dehors_note">Vérifier le séchoir / la terrasse</span>
+    </span>
   </div>
 
   <div class="item" data-id="linge_chaises" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🪑</span>
-    <span class="item-label">Linge lavé mouillé posé sur les chaises — salle à manger<span class="item-note">Ne pas laisser le linge dehors &nbsp;•&nbsp; לא להשאיר כביסה בחוץ</span></span>
+    <span class="item-label" data-i18n="linge_chaises">Linge lavé mouillé posé sur les chaises — salle à manger
+      <span class="item-note" data-i18n="linge_chaises_note">Ne pas laisser le linge dehors</span>
+    </span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     4. CUISINE
-══════════════════════════════════════════ -->
+<!-- 4. CUISINE -->
 <div class="section-block">
-  <div class="section-title cuisine">🍳 Cuisine &nbsp;/&nbsp; מטבח</div>
+  <div class="section-title cuisine" data-i18n="sec_cuisine">🍳 Cuisine</div>
 
   <div class="item" data-id="frigo" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧊</span>
-    <span class="item-label">Vider le frigo des produits périssables<span class="item-note">לרוקן את המקרר ממוצרים מתקלקלים</span></span>
+    <span class="item-label" data-i18n="frigo">Vider le frigo des produits périssables</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     5. ÉLECTRICITÉ / APPAREILS
-══════════════════════════════════════════ -->
+<!-- 5. ÉLECTRICITÉ -->
 <div class="section-block">
-  <div class="section-title elec">⚡ Électricité &amp; appareils &nbsp;/&nbsp; חשמל ומכשירים</div>
+  <div class="section-title elec" data-i18n="sec_elec">⚡ Électricité &amp; appareils</div>
 
   <div class="item" data-id="clim" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">❄️</span>
-    <span class="item-label">Éteindre les clims<span class="item-note">לכבות מזגנים</span></span>
+    <span class="item-label" data-i18n="clim">Éteindre les clims</span>
   </div>
 
   <div class="item" data-id="desert_cooler" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">💨</span>
-    <span class="item-label">Éteindre le refroidisseur d'air<span class="item-note">לכבות את המצנן</span></span>
+    <span class="item-label" data-i18n="cooler">Éteindre le refroidisseur d'air</span>
   </div>
 
   <div class="item" data-id="lumieres" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">💡</span>
-    <span class="item-label">Éteindre toutes les lumières<span class="item-note">לכבות את כל האורות</span></span>
+    <span class="item-label" data-i18n="lumieres">Éteindre toutes les lumières</span>
   </div>
 
   <div class="item" data-id="prises" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔌</span>
-    <span class="item-label">Débrancher les prises inutiles<span class="item-note">לנתק שקעים מיותרים</span></span>
+    <span class="item-label" data-i18n="prises">Débrancher les prises inutiles</span>
   </div>
 
   <div class="item" data-id="piles" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔋</span>
-    <span class="item-label">Enlever les piles des télécommandes<span class="item-note">להוציא סוללות מהשלטים — אם הנסיעה ארוכה</span></span>
+    <span class="item-label" data-i18n="piles">Enlever les piles des télécommandes
+      <span class="item-note" data-i18n="piles_note">Si absence longue</span>
+    </span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     6. EAU / GAZ
-══════════════════════════════════════════ -->
+<!-- 6. EAU & GAZ -->
 <div class="section-block">
-  <div class="section-title eau-gaz">🚰 Eau &amp; Gaz &nbsp;/&nbsp; מים וגז</div>
+  <div class="section-title eau-gaz" data-i18n="sec_eau_gaz">🚰 Eau &amp; Gaz</div>
 
   <div class="item" data-id="eau_coup" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🚰</span>
-    <span class="item-label">Couper l'eau<span class="item-note">לסגור את המים</span></span>
+    <span class="item-label" data-i18n="eau_coup">Couper l'eau</span>
   </div>
 
   <div class="item" data-id="gaz_coup" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔴</span>
-    <span class="item-label">Couper le gaz<span class="item-note">לסגור את הגז</span></span>
+    <span class="item-label" data-i18n="gaz_coup">Couper le gaz</span>
   </div>
 
   <div class="item" data-id="robinets" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🚽</span>
-    <span class="item-label">Fermer les petits robinets sur les toilettes<span class="item-note">לסגור את הברזים הקטנים על האסלות</span></span>
+    <span class="item-label" data-i18n="robinets">Fermer les petits robinets sur les toilettes</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     7. SÉCURITÉ / FERMETURE
-══════════════════════════════════════════ -->
+<!-- 7. SÉCURITÉ -->
 <div class="section-block">
-  <div class="section-title securite">🔒 Sécurité &amp; fermeture &nbsp;/&nbsp; אבטחה וסגירה</div>
+  <div class="section-title securite" data-i18n="sec_securite">🔒 Sécurité &amp; fermeture</div>
 
   <div class="item" data-id="volets" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🪟</span>
-    <span class="item-label">Fermer tous les volets<span class="item-note">לסגור את כל התריסים</span></span>
+    <span class="item-label" data-i18n="volets">Fermer tous les volets</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     8. PISCINE
-══════════════════════════════════════════ -->
+<!-- 8. PISCINE -->
 <div class="section-block">
-  <div class="section-title piscine">🏊 Piscine &nbsp;/&nbsp; בריכה</div>
+  <div class="section-title piscine" data-i18n="sec_piscine">🏊 Piscine</div>
 
   <div class="item highlight" data-id="piscine" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🏊</span>
-    <span class="item-label">Vérifier le niveau d'eau de la piscine<span class="item-note">לבדוק את מפלס המים בבריכה</span></span>
+    <span class="item-label" data-i18n="piscine_item">Vérifier le niveau d'eau de la piscine</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     DERNIÈRE VÉRIFICATION + NOTES
-══════════════════════════════════════════ -->
+<!-- INFOS DE DÉPART -->
 <div class="meta-block">
-  <h3>📋 Infos de départ &nbsp;/&nbsp; פרטי היציאה</h3>
+  <h3 data-i18n="meta_title">📋 Infos de départ</h3>
 
-  <!-- Nom / שם -->
   <div class="meta-field">
-    <label class="meta-label">👤 Nom &nbsp;<span class="meta-label-he">שם</span></label>
+    <label class="meta-label" data-i18n="meta_nom">👤 Nom</label>
     <input type="text" class="meta-input" id="nomField"
-      placeholder="Ton prénom / השם שלך"
+      data-i18n-placeholder="nom_placeholder"
+      placeholder="Ton prénom"
       oninput="saveMeta()">
   </div>
 
-  <!-- Date de départ / תאריך -->
   <div class="meta-field">
-    <label class="meta-label">📅 Date de départ &nbsp;<span class="meta-label-he">תאריך יציאה</span></label>
-    <input type="date" class="meta-input" id="dateField"
-      oninput="saveMeta()">
+    <label class="meta-label" data-i18n="meta_date">📅 Date de départ</label>
+    <input type="date" class="meta-input" id="dateField" oninput="saveMeta()">
   </div>
 
-  <!-- Clefs / מפתחות -->
   <div class="meta-field">
-    <label class="meta-label">🔑 Où sont les clefs ? &nbsp;<span class="meta-label-he">איפה המפתחות?</span></label>
+    <label class="meta-label" data-i18n="meta_clefs">🔑 Où sont les clefs ?</label>
     <input type="text" class="meta-input" id="clefsField"
-      placeholder="Ex: chez Rivka / אצל רבקה"
+      data-i18n-placeholder="clefs_placeholder"
+      placeholder="Ex : chez Rivka"
       oninput="saveMeta()">
   </div>
 
-  <!-- Séparateur -->
-  <div style="border-top: 1.5px solid var(--sand-dark); margin: 18px 0 16px;"></div>
+  <div style="border-top:1.5px solid var(--sand-dark);margin:18px 0 16px;"></div>
 
-  <!-- Dernière vérification -->
   <div class="last-check">
     <div>
-      <div class="last-check-label">🕐 Dernière vérification &nbsp;<span style="font-size:0.75rem;color:var(--muted)">בדיקה אחרונה</span></div>
-      <div class="last-check-value" id="lastCheckValue">Aucune vérification enregistrée / טרם נבדק</div>
+      <div class="last-check-label" data-i18n="meta_stamp_label">🕐 Dernière vérification</div>
+      <div class="last-check-value" id="lastCheckValue" data-i18n-default="no_stamp">Aucune vérification enregistrée</div>
     </div>
-    <button class="stamp-btn" onclick="stampCheck()">Horodater &nbsp;⏱</button>
+    <button class="stamp-btn" data-i18n="meta_stamp_btn" onclick="stampCheck()">Horodater ⏱</button>
   </div>
 
-  <!-- Notes libres -->
-  <textarea
-    class="notes-area"
-    id="notesField"
-    placeholder="📝 Notes / הערות — code alarme, message aux voisins, courses… / קוד אזעקה, הודעה לשכנים…"
-    oninput="saveNotes()"
-  ></textarea>
+  <textarea class="notes-area" id="notesField"
+    data-i18n-placeholder="notes_placeholder"
+    placeholder="📝 Notes — code alarme, message voisins, courses…"
+    oninput="saveNotes()"></textarea>
 </div>
 
-<!-- ══════════════════════════════════════════
-     BOUTON RESET
-══════════════════════════════════════════ -->
-<!-- Bouton WhatsApp -->
+<!-- BOUTON WHATSAPP -->
 <button class="share-btn" onclick="sendWhatsApp()">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-       style="width:22px;height:22px;vertical-align:middle;margin-right:8px;">
-  Envoyer sur WhatsApp &nbsp;/&nbsp; שלח בוואצאפ
+       style="width:22px;height:22px;flex-shrink:0;">
+  <span data-i18n="wa_btn">Envoyer sur WhatsApp</span>
 </button>
 
-<button class="reset-btn" onclick="resetAll()">↺ &nbsp;Réinitialiser &nbsp;/&nbsp; לאפס את הצ'קליסט</button>
+<!-- BOUTON RESET -->
+<button class="reset-btn" data-i18n="reset_btn" onclick="resetAll()">↺ Réinitialiser</button>
 
-<!-- Toast -->
-<div class="toast" id="toast">✅ Résumé copié !</div>
+<footer data-i18n="footer">Check-out Maison Eilat • Sauvegarde automatique 🔒</footer>
 
-<footer>Check-out Maison Eilat &nbsp;•&nbsp; שמירה אוטומטית פעילה 🔒</footer>
+<div class="toast" id="toast">✅</div>
 
-<!-- ══════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════ -->
 <script>
-  // ── Constantes ──────────────────────────────
-  const TOTAL       = 19;
-  const KEY_STATE   = 'eilat_checklist_v2_state';
-  const KEY_STAMP   = 'eilat_checklist_v2_stamp';
-  const KEY_NOTES   = 'eilat_checklist_v2_notes';
-  const KEY_META    = 'eilat_checklist_v2_meta';
+  // ═══════════════════════════════════════════════════
+  //  TRADUCTIONS
+  // ═══════════════════════════════════════════════════
+  const T = {
+    fr: {
+      title:               '🏠 Check-out Maison Eilat',
+      subtitle:            'Checklist avant de fermer la maison ☀️',
+      progress_label:      'Tâches complétées',
+      success:             '✅ Maison prête — tu peux partir tranquille ! 🚗☀️',
+      sec_stocks:          '📦 Stocks à vérifier',
+      sec_chambres:        '🛏 Chambres',
+      sec_linge:           '👕 Linge',
+      sec_cuisine:         '🍳 Cuisine',
+      sec_elec:            '⚡ Électricité & appareils',
+      sec_eau_gaz:         '🚰 Eau & Gaz',
+      sec_securite:        '🔒 Sécurité & fermeture',
+      sec_piscine:         '🏊 Piscine',
+      pq:                  'Papier toilette (PQ)',
+      sopalin:             'Sopalin',
+      eau:                 "Bouteilles d'eau",
+      produits:            "Produits d'entretien",
+      gaz_stock:           'Gaz',
+      draps:               'Mettre les draps et couvertures sur les lits',
+      linge_dehors:        'Pas de linge laissé dehors',
+      linge_dehors_note:   'Vérifier le séchoir / la terrasse',
+      linge_chaises:       'Linge lavé mouillé posé sur les chaises — salle à manger',
+      linge_chaises_note:  'Ne pas laisser le linge dehors',
+      frigo:               'Vider le frigo des produits périssables',
+      clim:                'Éteindre les clims',
+      cooler:              "Éteindre le refroidisseur d'air",
+      lumieres:            'Éteindre toutes les lumières',
+      prises:              'Débrancher les prises inutiles',
+      piles:               'Enlever les piles des télécommandes',
+      piles_note:          'Si absence longue',
+      eau_coup:            "Couper l'eau",
+      gaz_coup:            'Couper le gaz',
+      robinets:            'Fermer les petits robinets sur les toilettes',
+      volets:              'Fermer tous les volets',
+      piscine_item:        "Vérifier le niveau d'eau de la piscine",
+      meta_title:          '📋 Infos de départ',
+      meta_nom:            '👤 Nom',
+      meta_date:           '📅 Date de départ',
+      meta_clefs:          '🔑 Où sont les clefs ?',
+      meta_stamp_label:    '🕐 Dernière vérification',
+      meta_stamp_btn:      'Horodater ⏱',
+      no_stamp:            'Aucune vérification enregistrée',
+      nom_placeholder:     'Ton prénom',
+      clefs_placeholder:   'Ex : chez Rivka',
+      notes_placeholder:   '📝 Notes — code alarme, message voisins, courses…',
+      wa_btn:              'Envoyer sur WhatsApp',
+      reset_btn:           '↺ Réinitialiser',
+      footer:              'Check-out Maison Eilat • Sauvegarde automatique 🔒',
+      confirm_reset:       'Réinitialiser toute la checklist ?',
+      sending:             'Envoi en cours…',
+    },
+    he: {
+      title:               '🏠 יציאה מהבית — אילת',
+      subtitle:            'רשימת משימות לפני סגירת הבית ☀️',
+      progress_label:      'משימות שהושלמו',
+      success:             '✅ הבית מוכן — אפשר לצאת בשקט! נסיעה טובה! 🚗☀️',
+      sec_stocks:          '📦 בדיקת מלאי',
+      sec_chambres:        '🛏 חדרים',
+      sec_linge:           '👕 כביסה',
+      sec_cuisine:         '🍳 מטבח',
+      sec_elec:            '⚡ חשמל ומכשירים',
+      sec_eau_gaz:         '🚰 מים וגז',
+      sec_securite:        '🔒 אבטחה וסגירה',
+      sec_piscine:         '🏊 בריכה',
+      pq:                  'נייר טואלט',
+      sopalin:             'נייר מטבח',
+      eau:                 'בקבוקי מים',
+      produits:            'חומרי ניקוי',
+      gaz_stock:           'גז',
+      draps:               'לשים סדינים ושמיכות על המיטות',
+      linge_dehors:        'אין כביסה בחוץ',
+      linge_dehors_note:   'לבדוק מייבש / מרפסת',
+      linge_chaises:       'כביסה רטובה מונחת על הכיסאות — חדר אוכל',
+      linge_chaises_note:  'לא להשאיר כביסה בחוץ',
+      frigo:               'לרוקן את המקרר ממוצרים מתקלקלים',
+      clim:                'לכבות מזגנים',
+      cooler:              'לכבות את המצנן',
+      lumieres:            'לכבות את כל האורות',
+      prises:              'לנתק שקעים מיותרים',
+      piles:               'להוציא סוללות מהשלטים',
+      piles_note:          'אם הנסיעה ארוכה',
+      eau_coup:            'לסגור את המים',
+      gaz_coup:            'לסגור את הגז',
+      robinets:            'לסגור את הברזים הקטנים על האסלות',
+      volets:              'לסגור את כל התריסים',
+      piscine_item:        'לבדוק את מפלס המים בבריכה',
+      meta_title:          '📋 פרטי היציאה',
+      meta_nom:            '👤 שם',
+      meta_date:           '📅 תאריך יציאה',
+      meta_clefs:          '🔑 איפה המפתחות?',
+      meta_stamp_label:    '🕐 בדיקה אחרונה',
+      meta_stamp_btn:      'תעד עכשיו ⏱',
+      no_stamp:            'טרם נבדק',
+      nom_placeholder:     'השם שלך',
+      clefs_placeholder:   'למשל: אצל רבקה',
+      notes_placeholder:   '📝 הערות — קוד אזעקה, הודעה לשכנים…',
+      wa_btn:              'שלח בווצאפ',
+      reset_btn:           '↺ לאפס הכל',
+      footer:              'יציאה מהבית אילת • שמירה אוטומטית 🔒',
+      confirm_reset:       'לאפס את כל הרשימה?',
+      sending:             'שולח…',
+    }
+  };
 
-  // ── Helpers localStorage ─────────────────────
+  // ═══════════════════════════════════════════════════
+  //  CONSTANTES
+  // ═══════════════════════════════════════════════════
+  const TOTAL     = 19;
+  const KEY_STATE = 'eilat_v3_state';
+  const KEY_STAMP = 'eilat_v3_stamp';
+  const KEY_NOTES = 'eilat_v3_notes';
+  const KEY_META  = 'eilat_v3_meta';
+  const KEY_LANG  = 'eilat_v3_lang';
+  const WA_NUMBER = '972547361558';
+
+  let currentLang = localStorage.getItem(KEY_LANG) || 'fr';
+
+  // ═══════════════════════════════════════════════════
+  //  LANGUE
+  // ═══════════════════════════════════════════════════
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem(KEY_LANG, lang);
+
+    // Textes simples
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (T[lang][key] !== undefined) el.textContent = T[lang][key];
+    });
+
+    // Placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.dataset.i18nPlaceholder;
+      if (T[lang][key] !== undefined) el.placeholder = T[lang][key];
+    });
+
+    // Valeur par défaut lastCheckValue si vide
+    const stamp = localStorage.getItem(KEY_STAMP);
+    if (!stamp) document.getElementById('lastCheckValue').textContent = T[lang]['no_stamp'];
+
+    // Boutons toggle
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Direction HTML
+    document.documentElement.lang = lang === 'he' ? 'he' : 'fr';
+  }
+
+  // ═══════════════════════════════════════════════════
+  //  LOCALSTORAGE
+  // ═══════════════════════════════════════════════════
   function loadState() {
     try { return JSON.parse(localStorage.getItem(KEY_STATE)) || {}; }
     catch { return {}; }
@@ -731,105 +807,6 @@
     localStorage.setItem(KEY_STATE, JSON.stringify(state));
   }
 
-  // ── Formater le résumé de départ ─────────────
-  function formatResume() {
-    const nom   = document.getElementById('nomField').value   || '—';
-    const date  = document.getElementById('dateField').value  || '—';
-    const clefs = document.getElementById('clefsField').value || '—';
-    const notes = document.getElementById('notesField').value || '';
-    const stamp = localStorage.getItem(KEY_STAMP) || '—';
-    const checked = document.querySelectorAll('.item.checked').length;
-
-    // Icône par section pour le résumé
-    const sections = [
-      { label: 'Stocks / מלאי',             ids: ['pq','sopalin','eau','produits','gaz_stock'] },
-      { label: 'Chambres / חדרים',           ids: ['draps'] },
-      { label: 'Linge / כביסה',              ids: ['linge_dehors','linge_chaises'] },
-      { label: 'Cuisine / מטבח',             ids: ['frigo'] },
-      { label: 'Électricité / חשמל',         ids: ['clim','desert_cooler','lumieres','prises','piles'] },
-      { label: 'Eau & Gaz / מים וגז',        ids: ['eau_coup','gaz_coup','robinets'] },
-      { label: 'Sécurité / אבטחה',           ids: ['volets'] },
-      { label: 'Piscine / בריכה',            ids: ['piscine'] },
-    ];
-
-    const state = loadState();
-    let lines = [
-      '🏠 CHECK-OUT MAISON EILAT',
-      '──────────────────────',
-      `👤 ${nom}`,
-      `📅 ${date}`,
-      `🔑 Clefs / מפתחות : ${clefs}`,
-      `✅ ${checked} / ${TOTAL} tâches`,
-      `🕐 ${stamp}`,
-    ];
-
-    if (notes) lines.push(`📝 ${notes}`);
-
-    lines.push('\n── Détail ──');
-    sections.forEach(sec => {
-      const allDone = sec.ids.every(id => state[id]);
-      const some    = sec.ids.some(id => state[id]);
-      const icon = allDone ? '✅' : (some ? '⚠️' : '❌');
-      lines.push(`${icon} ${sec.label}`);
-    });
-
-    return lines.join('\n');
-  }
-
-  // ── Partager le résumé (Web Share API → Telegram, etc.) ──
-  // ── Numéro WhatsApp destinataire ────────────────────────
-  const WA_NUMBER = '972547361558';
-
-  // ── Envoyer le résumé sur WhatsApp ──────────────────────
-  function sendWhatsApp() {
-    const text = formatResume();
-    const url  = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text);
-    window.open(url, '_blank');
-  }
-
-  // ── Toast de confirmation ─────────────────────
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
-  }
-
-  // ── Mise à jour de la barre de progression ───
-  function updateProgress() {
-    const checked = document.querySelectorAll('.item.checked').length;
-    document.getElementById('counter').textContent = checked + ' / ' + TOTAL;
-    document.getElementById('progressBar').style.width = (checked / TOTAL * 100) + '%';
-    document.getElementById('successMsg').style.display = (checked === TOTAL) ? 'block' : 'none';
-  }
-
-  // ── Cocher / décocher un item ────────────────
-  function toggle(el) {
-    el.classList.toggle('checked');
-    const state = loadState();
-    state[el.dataset.id] = el.classList.contains('checked');
-    saveState(state);
-    updateProgress();
-  }
-
-  // ── Horodater la vérification ────────────────
-  function stampCheck() {
-    const now  = new Date();
-    const opts = {
-      weekday: 'long', year: 'numeric', month: 'long',
-      day: 'numeric', hour: '2-digit', minute: '2-digit'
-    };
-    const label = now.toLocaleDateString('fr-FR', opts);
-    localStorage.setItem(KEY_STAMP, label);
-    document.getElementById('lastCheckValue').textContent = label;
-  }
-
-  // ── Sauvegarder les notes ─────────────────────
-  function saveNotes() {
-    localStorage.setItem(KEY_NOTES, document.getElementById('notesField').value);
-  }
-
-  // ── Sauvegarder les champs meta (nom, date, clefs) ──
   function saveMeta() {
     const meta = {
       nom:   document.getElementById('nomField').value,
@@ -839,15 +816,56 @@
     localStorage.setItem(KEY_META, JSON.stringify(meta));
   }
 
-  // ── Réinitialiser tout ───────────────────────
+  function saveNotes() {
+    localStorage.setItem(KEY_NOTES, document.getElementById('notesField').value);
+  }
+
+  // ═══════════════════════════════════════════════════
+  //  PROGRESSION
+  // ═══════════════════════════════════════════════════
+  function updateProgress() {
+    const checked = document.querySelectorAll('.item.checked').length;
+    document.getElementById('counter').textContent = checked + ' / ' + TOTAL;
+    document.getElementById('progressBar').style.width = (checked / TOTAL * 100) + '%';
+    document.getElementById('successMsg').style.display = checked === TOTAL ? 'block' : 'none';
+    if (checked === TOTAL) document.getElementById('successMsg').textContent = T[currentLang]['success'];
+  }
+
+  // ═══════════════════════════════════════════════════
+  //  TOGGLE ITEM
+  // ═══════════════════════════════════════════════════
+  function toggle(el) {
+    el.classList.toggle('checked');
+    const state = loadState();
+    state[el.dataset.id] = el.classList.contains('checked');
+    saveState(state);
+    updateProgress();
+  }
+
+  // ═══════════════════════════════════════════════════
+  //  HORODATAGE
+  // ═══════════════════════════════════════════════════
+  function stampCheck() {
+    const now   = new Date();
+    const label = now.toLocaleDateString(currentLang === 'he' ? 'he-IL' : 'fr-FR', {
+      weekday:'long', year:'numeric', month:'long',
+      day:'numeric', hour:'2-digit', minute:'2-digit'
+    });
+    localStorage.setItem(KEY_STAMP, label);
+    document.getElementById('lastCheckValue').textContent = label;
+  }
+
+  // ═══════════════════════════════════════════════════
+  //  RESET
+  // ═══════════════════════════════════════════════════
   function resetAll() {
-    if (!confirm('Réinitialiser toute la checklist ?')) return;
+    if (!confirm(T[currentLang]['confirm_reset'])) return;
     document.querySelectorAll('.item').forEach(el => el.classList.remove('checked'));
     localStorage.removeItem(KEY_STATE);
     localStorage.removeItem(KEY_STAMP);
     localStorage.removeItem(KEY_NOTES);
     localStorage.removeItem(KEY_META);
-    document.getElementById('lastCheckValue').textContent = 'Aucune vérification enregistrée / טרם נבדק';
+    document.getElementById('lastCheckValue').textContent = T[currentLang]['no_stamp'];
     document.getElementById('notesField').value = '';
     document.getElementById('nomField').value = '';
     document.getElementById('dateField').value = '';
@@ -855,23 +873,89 @@
     updateProgress();
   }
 
-  // ── Restauration au chargement ───────────────
+  // ═══════════════════════════════════════════════════
+  //  RÉSUMÉ WHATSAPP
+  // ═══════════════════════════════════════════════════
+  function buildResume() {
+    const nom    = document.getElementById('nomField').value   || '—';
+    const date   = document.getElementById('dateField').value  || '—';
+    const clefs  = document.getElementById('clefsField').value || '—';
+    const notes  = document.getElementById('notesField').value || '';
+    const stamp  = localStorage.getItem(KEY_STAMP)            || '—';
+    const state  = loadState();
+    const nb     = document.querySelectorAll('.item.checked').length;
+
+    const isHe  = currentLang === 'he';
+    const sep   = '─────────────────';
+
+    const sections = [
+      { key: 'sec_stocks',   ids: ['pq','sopalin','eau','produits','gaz_stock'] },
+      { key: 'sec_chambres', ids: ['draps'] },
+      { key: 'sec_linge',    ids: ['linge_dehors','linge_chaises'] },
+      { key: 'sec_cuisine',  ids: ['frigo'] },
+      { key: 'sec_elec',     ids: ['clim','desert_cooler','lumieres','prises','piles'] },
+      { key: 'sec_eau_gaz',  ids: ['eau_coup','gaz_coup','robinets'] },
+      { key: 'sec_securite', ids: ['volets'] },
+      { key: 'sec_piscine',  ids: ['piscine'] },
+    ];
+
+    let lines = [
+      isHe ? '🏠 יציאה מהבית — אילת' : '🏠 CHECK-OUT MAISON EILAT',
+      sep,
+      (isHe ? '👤 ' : '👤 ') + nom,
+      (isHe ? '📅 ' : '📅 ') + date,
+      (isHe ? '🔑 מפתחות: ' : '🔑 Clefs : ') + clefs,
+      (isHe ? '✅ ' + nb + ' / ' + TOTAL + ' משימות' : '✅ ' + nb + ' / ' + TOTAL + ' tâches'),
+      '🕐 ' + stamp,
+    ];
+
+    if (notes) lines.push((isHe ? '📝 ' : '📝 ') + notes);
+    lines.push('\n' + sep);
+
+    sections.forEach(sec => {
+      const done = sec.ids.every(id => state[id]);
+      const some = sec.ids.some(id => state[id]);
+      const icon = done ? '✅' : (some ? '⚠️' : '❌');
+      lines.push(icon + ' ' + T[currentLang][sec.key]);
+    });
+
+    return lines.join('\n');
+  }
+
+  function sendWhatsApp() {
+    const text = buildResume();
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text), '_blank');
+  }
+
+  // ═══════════════════════════════════════════════════
+  //  TOAST
+  // ═══════════════════════════════════════════════════
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ═══════════════════════════════════════════════════
+  //  INIT
+  // ═══════════════════════════════════════════════════
   (function init() {
-    // Cases cochées
+    // Restaurer cases cochées
     const state = loadState();
     document.querySelectorAll('.item').forEach(el => {
       if (state[el.dataset.id]) el.classList.add('checked');
     });
 
-    // Horodatage
+    // Restaurer horodatage
     const stamp = localStorage.getItem(KEY_STAMP);
     if (stamp) document.getElementById('lastCheckValue').textContent = stamp;
 
-    // Notes
+    // Restaurer notes
     const notes = localStorage.getItem(KEY_NOTES);
     if (notes) document.getElementById('notesField').value = notes;
 
-    // Meta (nom, date, clefs)
+    // Restaurer meta
     try {
       const meta = JSON.parse(localStorage.getItem(KEY_META)) || {};
       if (meta.nom)   document.getElementById('nomField').value   = meta.nom;
@@ -879,9 +963,10 @@
       if (meta.clefs) document.getElementById('clefsField').value = meta.clefs;
     } catch {}
 
+    // Appliquer la langue sauvegardée
+    setLang(currentLang);
     updateProgress();
   })();
 </script>
-
 </body>
 </html>
