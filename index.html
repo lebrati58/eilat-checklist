@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Check-out Maison Eilat 🏠☀️</title>
+  <title>Check-out Maison Eilat 🏠☀️ | יציאה מהבית אילת</title>
   <style>
     /* ──────────────────────────────────────────
        IMPORTS & VARIABLES
@@ -239,7 +239,7 @@
     .item.highlight .item-label   { font-weight: 600; }
 
     /* ──────────────────────────────────────────
-       LAST CHECK + NOTES
+       LAST CHECK + NOTES + META FIELDS
     ────────────────────────────────────────── */
     .meta-block {
       margin: 0 14px 20px;
@@ -255,8 +255,47 @@
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Champs nom / date / clefs */
+    .meta-field {
       margin-bottom: 14px;
     }
+
+    .meta-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .meta-label-he {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      direction: rtl;
+    }
+
+    .meta-input {
+      width: 100%;
+      border: 2px solid var(--sand-dark);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .meta-input:focus {
+      outline: none;
+      border-color: var(--sea);
+    }
+
+    .meta-input::placeholder { color: var(--muted); font-weight: 300; }
 
     /* Last check row */
     .last-check {
@@ -364,7 +403,7 @@
 ══════════════════════════════════════════ -->
 <header>
   <h1>🏠 Check-out Maison Eilat</h1>
-  <div class="subtitle">Checklist avant de fermer la maison ☀️</div>
+  <div class="subtitle">Checklist avant de fermer la maison &nbsp;•&nbsp; צ'קליסט לפני סגירת הבית ☀️</div>
 </header>
 
 <!-- ══════════════════════════════════════════
@@ -372,7 +411,7 @@
 ══════════════════════════════════════════ -->
 <div class="progress-wrap">
   <div class="progress-label">
-    <span>Tâches complétées</span>
+    <span>Tâches complétées &nbsp;/&nbsp; משימות שהושלמו</span>
     <strong id="counter">0 / 19</strong>
   </div>
   <div class="progress-bar-bg">
@@ -382,43 +421,43 @@
 
 <!-- Message de succès global -->
 <div class="success-msg" id="successMsg">
-  ✅ Maison prête — tu peux partir tranquille ! Bon voyage ! 🚗☀️
+  ✅ Maison prête — tu peux partir tranquille ! 🚗☀️<br><span style="font-size:0.9rem;font-weight:400;opacity:0.9">הבית מוכן — אפשר לצאת בשקט! נסיעה טובה!</span>
 </div>
 
 <!-- ══════════════════════════════════════════
      1. STOCKS
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title stocks">📦 Stocks à vérifier</div>
+  <div class="section-title stocks">📦 Stocks à vérifier &nbsp;/&nbsp; בדיקת מלאי</div>
 
   <div class="item" data-id="pq" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧻</span>
-    <span class="item-label">Papier toilette (PQ)</span>
+    <span class="item-label">Papier toilette (PQ)<span class="item-note">נייר טואלט</span></span>
   </div>
 
   <div class="item" data-id="sopalin" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧴</span>
-    <span class="item-label">Sopalin</span>
+    <span class="item-label">Sopalin<span class="item-note">נייר מטבח</span></span>
   </div>
 
   <div class="item" data-id="eau" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">💧</span>
-    <span class="item-label">Eau</span>
+    <span class="item-label">Eau<span class="item-note">מים</span></span>
   </div>
 
   <div class="item" data-id="produits" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧹</span>
-    <span class="item-label">Produits d'entretien</span>
+    <span class="item-label">Produits d'entretien<span class="item-note">חומרי ניקוי</span></span>
   </div>
 
   <div class="item" data-id="gaz_stock" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔥</span>
-    <span class="item-label">Gaz</span>
+    <span class="item-label">Gaz<span class="item-note">גז</span></span>
   </div>
 </div>
 
@@ -426,12 +465,12 @@
      2. CHAMBRES
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title chambres">🛏 Chambres</div>
+  <div class="section-title chambres">🛏 Chambres &nbsp;/&nbsp; חדרים</div>
 
   <div class="item" data-id="draps" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🛏</span>
-    <span class="item-label">Mettre les draps et couvertures sur les lits</span>
+    <span class="item-label">Mettre les draps et couvertures sur les lits<span class="item-note">לשים סדינים ושמיכות על המיטות</span></span>
   </div>
 </div>
 
@@ -439,20 +478,18 @@
      3. LINGE
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title linge">👕 Linge</div>
+  <div class="section-title linge">👕 Linge &nbsp;/&nbsp; כביסה</div>
 
   <div class="item" data-id="linge_dehors" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🚫</span>
-    <span class="item-label">Pas de linge laissé dehors
-      <span class="item-note">Vérifier le séchoir / la terrasse</span>
-    </span>
+    <span class="item-label">Pas de linge laissé dehors<span class="item-note">אין כביסה בחוץ — לבדוק מייבש / מרפסת</span></span>
   </div>
 
   <div class="item" data-id="linge_chaises" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🪑</span>
-    <span class="item-label">Linge rangé sur les chaises — salle à manger</span>
+    <span class="item-label">Linge rangé sur les chaises — salle à manger<span class="item-note">כביסה מסודרת על הכיסאות — חדר אוכל</span></span>
   </div>
 </div>
 
@@ -460,12 +497,12 @@
      4. CUISINE
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title cuisine">🍳 Cuisine</div>
+  <div class="section-title cuisine">🍳 Cuisine &nbsp;/&nbsp; מטבח</div>
 
   <div class="item" data-id="frigo" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🧊</span>
-    <span class="item-label">Vider le frigo des produits périssables</span>
+    <span class="item-label">Vider le frigo des produits périssables<span class="item-note">לרוקן את המקרר ממוצרים מתקלקלים</span></span>
   </div>
 </div>
 
@@ -473,38 +510,36 @@
      5. ÉLECTRICITÉ / APPAREILS
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title elec">⚡ Électricité &amp; appareils</div>
+  <div class="section-title elec">⚡ Électricité &amp; appareils &nbsp;/&nbsp; חשמל ומכשירים</div>
 
   <div class="item" data-id="clim" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">❄️</span>
-    <span class="item-label">Éteindre les clims</span>
+    <span class="item-label">Éteindre les clims<span class="item-note">לכבות מזגנים</span></span>
   </div>
 
   <div class="item" data-id="desert_cooler" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">💨</span>
-    <span class="item-label">Éteindre le desert cooler</span>
+    <span class="item-label">Éteindre le desert cooler<span class="item-note">לכבות את ה-desert cooler</span></span>
   </div>
 
   <div class="item" data-id="lumieres" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">💡</span>
-    <span class="item-label">Éteindre toutes les lumières</span>
+    <span class="item-label">Éteindre toutes les lumières<span class="item-note">לכבות את כל האורות</span></span>
   </div>
 
   <div class="item" data-id="prises" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔌</span>
-    <span class="item-label">Débrancher les prises inutiles</span>
+    <span class="item-label">Débrancher les prises inutiles<span class="item-note">לנתק שקעים מיותרים</span></span>
   </div>
 
   <div class="item" data-id="piles" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔋</span>
-    <span class="item-label">Enlever les piles des télécommandes
-      <span class="item-note">Si absence longue</span>
-    </span>
+    <span class="item-label">Enlever les piles des télécommandes<span class="item-note">להוציא סוללות מהשלטים — אם הנסיעה ארוכה</span></span>
   </div>
 </div>
 
@@ -512,24 +547,24 @@
      6. EAU / GAZ
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title eau-gaz">🚰 Eau &amp; Gaz</div>
+  <div class="section-title eau-gaz">🚰 Eau &amp; Gaz &nbsp;/&nbsp; מים וגז</div>
 
   <div class="item" data-id="eau_coup" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🚰</span>
-    <span class="item-label">Couper l'eau</span>
+    <span class="item-label">Couper l'eau<span class="item-note">לסגור את המים</span></span>
   </div>
 
   <div class="item" data-id="gaz_coup" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🔴</span>
-    <span class="item-label">Couper le gaz</span>
+    <span class="item-label">Couper le gaz<span class="item-note">לסגור את הגז</span></span>
   </div>
 
   <div class="item" data-id="robinets" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🚽</span>
-    <span class="item-label">Fermer les petits robinets sur les toilettes</span>
+    <span class="item-label">Fermer les petits robinets sur les toilettes<span class="item-note">לסגור את הברזים הקטנים על האסלות</span></span>
   </div>
 </div>
 
@@ -537,12 +572,12 @@
      7. SÉCURITÉ / FERMETURE
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title securite">🔒 Sécurité &amp; fermeture</div>
+  <div class="section-title securite">🔒 Sécurité &amp; fermeture &nbsp;/&nbsp; אבטחה וסגירה</div>
 
   <div class="item" data-id="volets" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🪟</span>
-    <span class="item-label">Fermer tous les volets</span>
+    <span class="item-label">Fermer tous les volets<span class="item-note">לסגור את כל התריסים</span></span>
   </div>
 </div>
 
@@ -550,12 +585,12 @@
      8. PISCINE
 ══════════════════════════════════════════ -->
 <div class="section-block">
-  <div class="section-title piscine">🏊 Piscine</div>
+  <div class="section-title piscine">🏊 Piscine &nbsp;/&nbsp; בריכה</div>
 
   <div class="item highlight" data-id="piscine" onclick="toggle(this)">
     <div class="checkbox"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5L5 9L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="item-icon">🏊</span>
-    <span class="item-label">Vérifier le niveau d'eau de la piscine</span>
+    <span class="item-label">Vérifier le niveau d'eau de la piscine<span class="item-note">לבדוק את מפלס המים בבריכה</span></span>
   </div>
 </div>
 
@@ -563,22 +598,48 @@
      DERNIÈRE VÉRIFICATION + NOTES
 ══════════════════════════════════════════ -->
 <div class="meta-block">
-  <h3>📋 Infos de départ</h3>
+  <h3>📋 Infos de départ &nbsp;/&nbsp; פרטי היציאה</h3>
+
+  <!-- Nom / שם -->
+  <div class="meta-field">
+    <label class="meta-label">👤 Nom &nbsp;<span class="meta-label-he">שם</span></label>
+    <input type="text" class="meta-input" id="nomField"
+      placeholder="Ton prénom / השם שלך"
+      oninput="saveMeta()">
+  </div>
+
+  <!-- Date de départ / תאריך -->
+  <div class="meta-field">
+    <label class="meta-label">📅 Date de départ &nbsp;<span class="meta-label-he">תאריך יציאה</span></label>
+    <input type="date" class="meta-input" id="dateField"
+      oninput="saveMeta()">
+  </div>
+
+  <!-- Clefs / מפתחות -->
+  <div class="meta-field">
+    <label class="meta-label">🔑 Où sont les clefs ? &nbsp;<span class="meta-label-he">איפה המפתחות?</span></label>
+    <input type="text" class="meta-input" id="clefsField"
+      placeholder="Ex: chez Rivka / אצל רבקה"
+      oninput="saveMeta()">
+  </div>
+
+  <!-- Séparateur -->
+  <div style="border-top: 1.5px solid var(--sand-dark); margin: 18px 0 16px;"></div>
 
   <!-- Dernière vérification -->
   <div class="last-check">
     <div>
-      <div class="last-check-label">🕐 Dernière vérification</div>
-      <div class="last-check-value" id="lastCheckValue">Aucune vérification enregistrée</div>
+      <div class="last-check-label">🕐 Dernière vérification &nbsp;<span style="font-size:0.75rem;color:var(--muted)">בדיקה אחרונה</span></div>
+      <div class="last-check-value" id="lastCheckValue">Aucune vérification enregistrée / טרם נבדק</div>
     </div>
-    <button class="stamp-btn" onclick="stampCheck()">Horodater maintenant</button>
+    <button class="stamp-btn" onclick="stampCheck()">Horodater &nbsp;⏱</button>
   </div>
 
   <!-- Notes libres -->
   <textarea
     class="notes-area"
     id="notesField"
-    placeholder="📝 Notes avant départ (code alarme, courses à faire, message aux voisins…)"
+    placeholder="📝 Notes / הערות — code alarme, message aux voisins, courses… / קוד אזעקה, הודעה לשכנים…"
     oninput="saveNotes()"
   ></textarea>
 </div>
@@ -586,9 +647,9 @@
 <!-- ══════════════════════════════════════════
      BOUTON RESET
 ══════════════════════════════════════════ -->
-<button class="reset-btn" onclick="resetAll()">↺ &nbsp;Réinitialiser la checklist</button>
+<button class="reset-btn" onclick="resetAll()">↺ &nbsp;Réinitialiser &nbsp;/&nbsp; לאפס את הצ'קליסט</button>
 
-<footer>Check-out Maison Eilat &nbsp;•&nbsp; Sauvegarde automatique activée 🔒</footer>
+<footer>Check-out Maison Eilat &nbsp;•&nbsp; שמירה אוטומטית פעילה 🔒</footer>
 
 <!-- ══════════════════════════════════════════
      JAVASCRIPT
@@ -599,6 +660,7 @@
   const KEY_STATE   = 'eilat_checklist_v2_state';
   const KEY_STAMP   = 'eilat_checklist_v2_stamp';
   const KEY_NOTES   = 'eilat_checklist_v2_notes';
+  const KEY_META    = 'eilat_checklist_v2_meta';
 
   // ── Helpers localStorage ─────────────────────
   function loadState() {
@@ -644,6 +706,16 @@
     localStorage.setItem(KEY_NOTES, document.getElementById('notesField').value);
   }
 
+  // ── Sauvegarder les champs meta (nom, date, clefs) ──
+  function saveMeta() {
+    const meta = {
+      nom:   document.getElementById('nomField').value,
+      date:  document.getElementById('dateField').value,
+      clefs: document.getElementById('clefsField').value
+    };
+    localStorage.setItem(KEY_META, JSON.stringify(meta));
+  }
+
   // ── Réinitialiser tout ───────────────────────
   function resetAll() {
     if (!confirm('Réinitialiser toute la checklist ?')) return;
@@ -651,8 +723,12 @@
     localStorage.removeItem(KEY_STATE);
     localStorage.removeItem(KEY_STAMP);
     localStorage.removeItem(KEY_NOTES);
-    document.getElementById('lastCheckValue').textContent = 'Aucune vérification enregistrée';
+    localStorage.removeItem(KEY_META);
+    document.getElementById('lastCheckValue').textContent = 'Aucune vérification enregistrée / טרם נבדק';
     document.getElementById('notesField').value = '';
+    document.getElementById('nomField').value = '';
+    document.getElementById('dateField').value = '';
+    document.getElementById('clefsField').value = '';
     updateProgress();
   }
 
@@ -671,6 +747,14 @@
     // Notes
     const notes = localStorage.getItem(KEY_NOTES);
     if (notes) document.getElementById('notesField').value = notes;
+
+    // Meta (nom, date, clefs)
+    try {
+      const meta = JSON.parse(localStorage.getItem(KEY_META)) || {};
+      if (meta.nom)   document.getElementById('nomField').value   = meta.nom;
+      if (meta.date)  document.getElementById('dateField').value  = meta.date;
+      if (meta.clefs) document.getElementById('clefsField').value = meta.clefs;
+    } catch {}
 
     updateProgress();
   })();
