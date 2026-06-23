@@ -693,9 +693,9 @@
 <!-- ══════════════════════════════════════════
      BOUTON RESET
 ══════════════════════════════════════════ -->
-<!-- Bouton partager -->
-<button class="share-btn" onclick="shareResume()">
-  📤 &nbsp;Envoyer le résumé &nbsp;/&nbsp; שלח סיכום
+<!-- Bouton envoyer vers Google Sheets -->
+<button class="share-btn" id="sendBtn" onclick="sendToSheets()">
+  📤 &nbsp;Envoyer vers Google Sheets &nbsp;/&nbsp; שלח לגוגל שיטס
 </button>
 
 <button class="reset-btn" onclick="resetAll()">↺ &nbsp;Réinitialiser &nbsp;/&nbsp; לאפס את הצ'קליסט</button>
@@ -772,25 +772,48 @@
   }
 
   // ── Partager le résumé (Web Share API → Telegram, etc.) ──
-  async function shareResume() {
-    const text = formatResume();
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: '🏠 Check-out Maison Eilat',
-          text: text
-        });
-      } catch (e) {
-        // Annulé par l'utilisateur — silencieux
-      }
-    } else {
-      // Fallback bureau : copier dans le presse-papiers
-      try {
-        await navigator.clipboard.writeText(text);
-        showToast('✅ Résumé copié dans le presse-papiers !');
-      } catch {
-        prompt('Copie ce résumé :', text);
-      }
+  // ── URL du Google Apps Script (à remplir après déploiement) ──
+  const APPS_SCRIPT_URL = 'COLLER_URL_ICI';
+
+  // ── Envoyer les données vers Google Sheets ──────────────────
+  async function sendToSheets() {
+    if (APPS_SCRIPT_URL === 'COLLER_URL_ICI') {
+      showToast('⚠️ Google Sheets pas encore configuré');
+      return;
+    }
+
+    const state   = loadState();
+    const stamp   = localStorage.getItem(KEY_STAMP) || '';
+    const payload = {
+      nom:    document.getElementById('nomField').value   || '',
+      date:   document.getElementById('dateField').value  || '',
+      clefs:  document.getElementById('clefsField').value || '',
+      notes:  document.getElementById('notesField').value || '',
+      taches: document.querySelectorAll('.item.checked').length + ' / ' + TOTAL,
+      piscine: !!state['piscine'],
+      eau:     !!state['eau_coup'],
+      gaz:     !!state['gaz_coup'],
+      volets:  !!state['volets'],
+      stamp:   stamp
+    };
+
+    const btn = document.getElementById('sendBtn');
+    btn.textContent = '⏳ Envoi en cours…';
+    btn.disabled = true;
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      showToast('✅ Envoyé dans Google Sheets !');
+    } catch (err) {
+      showToast('❌ Erreur d\'envoi — vérifie ta connexion');
+    } finally {
+      btn.textContent = '📤 Envoyer vers Google Sheets / שלח לגוגל שיטס';
+      btn.disabled = false;
     }
   }
 
